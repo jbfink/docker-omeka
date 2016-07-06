@@ -1,0 +1,6 @@
+mysql:
+ environment: 
+  - MYSQL_ROOT_PASSWORD=sobadpassword
+  - MYSQL_DB=omeka
+  - MYSQL_USER=omeka
+  - MYSQL_PASSWORD=incrediblybadpass

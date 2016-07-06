@@ -1,0 +1,13 @@
+omeka:
+ build: omeka/
+ links:
+  - mysql:db
+ ports:
+  - "8087:80"
+ command: apache2-foreground 
+
+mysql: 
+ image: mysql
+ extends:
+  file: extras.yml
+  service: mysql
