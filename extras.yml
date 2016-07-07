@@ -1,4 +1,4 @@
-mysql:
+mariadb:
  environment: 
   - MYSQL_ROOT_PASSWORD=sobadpassword
   - MYSQL_DATABASE=omeka
