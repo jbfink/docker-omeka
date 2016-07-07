@@ -2,6 +2,8 @@ omeka:
  build: omeka/
  links:
   - mariadb:db
+ volumes:
+  - ./omeka/omeka-2.4.1:/var/www/html
  ports:
   - "8087:80"
  command: apache2-foreground 
