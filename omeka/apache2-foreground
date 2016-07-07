@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+# Apache gets grumpy about PID files pre-existing
+rm -f /var/run/apache2/apache2.pid
+# chowning the /var/www/html for permission
+
+chown -R www-data:www-data /var/www/html
+
+exec apache2 -DFOREGROUND
+

@@ -1,13 +1,15 @@
 omeka:
  build: omeka/
  links:
-  - mysql:db
+  - mariadb:db
+ volumes:
+  - ./omeka/omeka-2.4.1:/var/www/html
  ports:
   - "8087:80"
  command: apache2-foreground 
 
-mysql: 
- build: mysql
+mariadb: 
+ image: mariadb
  extends:
   file: extras.yml
-  service: mysql
+  service: mariadb
