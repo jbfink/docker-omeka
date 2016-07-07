@@ -7,7 +7,7 @@ omeka:
  command: apache2-foreground 
 
 mysql: 
- image: mysql
+ build: mysql
  extends:
   file: extras.yml
   service: mysql
