@@ -1,6 +1,8 @@
 mysql:
  environment: 
   - MYSQL_ROOT_PASSWORD=sobadpassword
-  - MYSQL_DB=omeka
-  - MYSQL_USER=omeka
-  - MYSQL_PASSWORD=incrediblybadpass
+# Omeka has problems (can't log in as 'omeka'@'%') so I am going to try to
+# explicitly create an omeka@% user via sql in mysql/ directory.
+    #  - MYSQL_DB=omeka
+    #  - MYSQL_USER=omeka
+    #  - MYSQL_PASSWORD=incrediblybadpass
