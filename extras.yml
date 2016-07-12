@@ -1,6 +1,6 @@
 mariadb:
  environment: 
-  - MYSQL_ROOT_PASSWORD=sobadpassword
+  - MYSQL_ROOT_PASSWORD=xxxxx
   - MYSQL_DATABASE=omeka
   - MYSQL_USER=omeka
-  - MYSQL_PASSWORD=incrediblybadpass
+  - MYSQL_PASSWORD=xxxxx
