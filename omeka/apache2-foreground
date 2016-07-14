@@ -1,11 +1,25 @@
 #!/bin/bash
 set -e
 
+# Note: we don't just use "apache2ctl" here because it itself is just a shell-sc
+#ript wrapper around apache2 which provides extra functionality like "apache2ctl 
+#start" for launching apache2 in the background.
+# (also, when run as "apache2ctl <apache args>", it does not use "exec", which l
+#eaves an undesirable resident shell process)
+
+: "${APACHE_CONFDIR:=/etc/apache2}"
+: "${APACHE_ENVVARS:=$APACHE_CONFDIR/envvars}"
+if test -f "$APACHE_ENVVARS"; then
+	. "$APACHE_ENVVARS"
+fi
+
 # Apache gets grumpy about PID files pre-existing
-rm -f /var/run/apache2/apache2.pid
-# chowning the /var/www/html for permission
+: "${APACHE_PID_FILE:=${APACHE_RUN_DIR:=/var/run/apache2}/apache2.pid}"
+rm -f "$APACHE_PID_FILE"
+
 
 chown -R www-data:www-data /var/www/html
 
-exec apache2 -DFOREGROUND
+exec apache2 -DFOREGROUND "$@"
+
 
